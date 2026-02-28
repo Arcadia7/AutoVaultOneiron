@@ -1,0 +1,23 @@
+[
+  {
+    "Author": "Astesia",
+    "Name": "Auto VaultOneiron",
+    "InternalName": "AutoVaultOneiron",
+    "AssemblyVersion": "1.0.2.0",
+    "Description": "自动G18挖宝插件",
+    "Punchline": "羊来",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 14,
+    "RepoUrl": "https://github.com/Arcadia7/AutoVaultOneiron",
+    "Tags": [
+      "treasure",
+      "automation"
+    ],
+    "CategoryTags": [],
+    "IconUrl": "",
+    "Changelog": "初始分发",
+    "DownloadLinkInstall": "https://github.com/Arcadia7/AutoVaultOneiron/releases/latest/download/AutoVaultOneiron.zip",
+    "DownloadLinkTesting": "https://github.com/Arcadia7/AutoVaultOneiron/releases/latest/download/AutoVaultOneiron.zip",
+    "DownloadLinkUpdate": "https://github.com/Arcadia7/AutoVaultOneiron/releases/latest/download/AutoVaultOneiron.zip"
+  }
+]
