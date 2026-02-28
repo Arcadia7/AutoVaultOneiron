@@ -1,0 +1,39 @@
+name: Publish Distribution Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/AutoVaultOneiron.zip"
+      - "repo.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure package exists
+        run: test -f packages/AutoVaultOneiron.zip
+
+      - name: Read version from repo.json
+        id: meta
+        run: |
+          version=$(jq -r '.[0].AssemblyVersion' repo.json)
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Publish release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.meta.outputs.version }}
+          name: AutoVaultOneiron ${{ steps.meta.outputs.version }}
+          body: Automated distribution release for version ${{ steps.meta.outputs.version }}.
+          files: packages/AutoVaultOneiron.zip
+          overwrite_files: true
+          make_latest: true
