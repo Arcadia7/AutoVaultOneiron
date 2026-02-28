@@ -9,13 +9,8 @@
     "ApplicableVersion": "any",
     "DalamudApiLevel": 14,
     "RepoUrl": "https://github.com/Arcadia7/AutoVaultOneiron",
-    "Tags": [
-      "treasure",
-      "automation"
-    ],
-    "CategoryTags": [],
     "IconUrl": "https://raw.githubusercontent.com/Arcadia7/AutoVaultOneiron/main/icon.png",
-    "Changelog": "初始分发",
+    "Changelog": "初版",
     "DownloadLinkInstall": "https://github.com/Arcadia7/AutoVaultOneiron/releases/latest/download/AutoVaultOneiron.zip",
     "DownloadLinkTesting": "https://github.com/Arcadia7/AutoVaultOneiron/releases/latest/download/AutoVaultOneiron.zip",
     "DownloadLinkUpdate": "https://github.com/Arcadia7/AutoVaultOneiron/releases/latest/download/AutoVaultOneiron.zip"
