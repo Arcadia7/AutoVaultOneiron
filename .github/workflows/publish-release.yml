@@ -25,17 +25,7 @@ jobs:
       - name: Read version from repo.json
         id: meta
         run: |
-          version=$(python - <<'PY'
-import json
-from pathlib import Path
-
-raw = Path("repo.json").read_bytes().decode("utf-8-sig")
-data = json.loads(raw)
-if isinstance(data, list):
-    data = data[0] if data else {}
-print(data.get("AssemblyVersion", ""))
-PY
-          )
+          version=$(jq -r 'if type=="array" then (.[0].AssemblyVersion // "") else (.AssemblyVersion // "") end' repo.json)
           if [ -z "$version" ] || [ "$version" = "null" ]; then
             echo "::error::AssemblyVersion not found in repo.json"
             exit 1
