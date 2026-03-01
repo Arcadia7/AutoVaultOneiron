@@ -25,7 +25,21 @@ jobs:
       - name: Read version from repo.json
         id: meta
         run: |
-          version=$(jq -r '.[0].AssemblyVersion' repo.json)
+          version=$(python - <<'PY'
+import json
+from pathlib import Path
+
+raw = Path("repo.json").read_bytes().decode("utf-8-sig")
+data = json.loads(raw)
+if isinstance(data, list):
+    data = data[0] if data else {}
+print(data.get("AssemblyVersion", ""))
+PY
+          )
+          if [ -z "$version" ] || [ "$version" = "null" ]; then
+            echo "::error::AssemblyVersion not found in repo.json"
+            exit 1
+          fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
 
       - name: Publish release asset
